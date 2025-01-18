@@ -24,3 +24,14 @@ jobs:
 
             - name : run build
               run: npm run build  
+
+# 2nd job run shell scripts
+    custom-script:
+        runs-on: ubuntu-latest
+        needs: build
+        steps:
+            - uses: actions/checkout@v2
+            - name: Run a one-line script
+              run: |
+                 chmod +x t1.sh # Ensure the script is executable
+                 ./t1.sh
