@@ -46,3 +46,8 @@ jobs:
         tag:  ${{ env.tag }}
     - name : check this release     
       run: echo "Release ${{steps.next-version.outputs.tag}} created"
+      # Step 5: Get the latest commit message
+    - name: Get latest commit message
+      run: |
+        commit_message=$(git log -1 --pretty=%B)
+        echo "Latest commit message: $commit_message"
