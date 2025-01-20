@@ -4,8 +4,11 @@ import express from 'express';
 const app = express();
 
 app.get('/', (req, res) => {
-  console.log('Request received from: ');
-  res.send('Hello World!');
+
+  res.send('Hello World! This is a simple express server');
+
+  console.log('Request received from: 2');
+ 
 });
 
 app.listen(3000, () => {
