@@ -41,6 +41,6 @@ jobs:
         GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         title: MyReleaseMessage
-        tag: ${{env.tag}}
+        tag: dsasds
     - name : check this release     
       run: echo "Release ${{steps.next-version.outputs}}"
