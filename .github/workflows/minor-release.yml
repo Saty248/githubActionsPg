@@ -43,4 +43,4 @@ jobs:
         title: MyReleaseMessage
         tag:  ${{ env.tag }}
     - name : check this release     
-      run: echo "Release ${{steps.next-version.outputs}}"
+      run: echo "Release ${{steps.next-version.outputs.tag}} created"
