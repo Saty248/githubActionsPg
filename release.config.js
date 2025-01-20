@@ -16,7 +16,6 @@ module.exports = {
     ],
     prepare: [
         '@semantic-release/changelog',
-
         {
             path: '@semantic-release/git',
             message: 'chore(release): ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}'
@@ -29,6 +28,6 @@ module.exports = {
         '@semantic-release/github'
     ],
     fail: [
-        '@semantic-release/github'
+        '@semantic-release/github',
     ]
 };
