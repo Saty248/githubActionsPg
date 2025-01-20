@@ -19,7 +19,7 @@ jobs:
       run: |
           # Extract the latest tag
           latest_tag=$(git describe --tags --abbrev=0)
-          echo "Latest tag: $latest_tag"
+          echo "Latest tag: {$latest_tag}"
           
           # Remove the 'v' prefix if it exists
           version=${latest_tag#v}
