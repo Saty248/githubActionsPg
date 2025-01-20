@@ -20,7 +20,6 @@ jobs:
       id: next-version
       run: |
           # Extract the latest tag
-          git fetch --tags
           latest_tag=$(git describe --tags --abbrev=0)
           echo "Latest tag: {$latest_tag}"
           
