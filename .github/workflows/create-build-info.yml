@@ -1,0 +1,38 @@
+name: test
+on:
+  workflow_dispatch:
+
+jobs:
+  create_build_info:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Setup Node
+        uses: actions/setup-node@v2
+        with:
+          node-version: "20.11.1"
+      - name: Install dependencies
+        run: npm install
+      - name: Create build info
+        run: npx ts-node buildInfoScripts/latestBuildUpdate.ts
+       # Step 3: Configure Git
+      - name: Configure Git
+        run: |
+            git config --global user.name "GitHub Actions"
+            git config --global user.email "actions@github.com"
+
+     # Step 4: Commit the changes
+      - name: Commit changes
+        run: |
+         git add buildInfoScripts/
+         git commit -m "Automated update from GitHub Actions"
+     # Step 5: Push the changes
+      - name: Push changes
+        env:
+         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+         git pull origin main --rebase
+         git push origin HEAD
+
+    
